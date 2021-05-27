@@ -1,14 +1,14 @@
 import java.util.Comparator;
 
-public class Stap implements Comparable<Stap>, Comparator<Stap> {
-    int naar;
-    double afstand;
+public class Stap implements Comparator<Stap> {
+    public int stap;
+    public int afstand;
 
     public Stap() {
 
     }
-    public Stap(int naar, double afstand) {
-        this.naar = naar;
+    public Stap(int stap, int afstand) {
+        this.stap = stap;
         this.afstand = afstand;
     }
 
