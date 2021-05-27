@@ -30,9 +30,14 @@ public class Reis implements Comparable<Stap>{
             // Haal de minimale afstand van de queue weg.
             int h = pq.remove().stap;
 
+            // Verwerk de naasten om de priority queue uit te breiden.
+            naastenVerwerken(h);
 
             // En voeg deze weer toe aan de bepaalde.
             bepaalde.add(h);
+
+
+
         }
     }
 
