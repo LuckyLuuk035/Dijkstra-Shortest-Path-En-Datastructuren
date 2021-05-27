@@ -48,9 +48,17 @@ public class Reis implements Comparable<Stap>{
             if (bepaalde.contains(huidige.stap)) {
                 continue;
             }
-
+            
             afstand = huidige.afstand;
             nieuweAfstand = afstanden[h] + afstand;
+
+            // Als de nieuwe afstand minder is dan de vorige afstand.
+            if (nieuweAfstand < afstanden[huidige.stap]){
+                afstanden[huidige.stap] = nieuweAfstand;
+            }
+
+            // En voeg tot slot de stap met nieuwe waarde toe aan de queue.
+            pq.add(new Stap(huidige.stap, afstanden[huidige.stap]));
         }
     }
 }
