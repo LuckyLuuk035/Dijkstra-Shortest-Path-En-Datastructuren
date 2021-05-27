@@ -8,7 +8,7 @@ public class Main {
 
         // Maak een lijst aan met elke node
         List<List<Stap>> stappenLst = new ArrayList<List<Stap>>();
-        for (int i = 0; i < s; i++) {
+        for (int i = 0; i <= s; i++) {
             List<Stap> tempLst = new ArrayList<Stap>();
             stappenLst.add(tempLst);
         }
@@ -45,5 +45,11 @@ public class Main {
 
         // Bereken de korste paden (dit hoeft maar 1x te gebeuren)
         Reis spg = new Reis(s); // Spanning Tree Graph - hernoemd naar het YouTube account.
+        spg.algoritme(stappenLst, begin);
+
+        // Print de kortste paden naar alle nodes vanaf 0.
+        for (int i = 0; i < spg.afstanden.length; i++) {
+            System.out.println(begin + " to " + i + " is " + spg.afstanden[i]);
+        }
     }
 }

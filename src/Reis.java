@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Reis implements Comparable<Stap>{
-    private int afstanden[]; // Afstanden.
+    public int afstanden[]; // Afstanden.
     private int s; // Aantal Stappen.
     private Set<Integer> bepaalde; // Vast gezette Stappen.
     private PriorityQueue<Stap> pq; // De priority queue van de Stappen.
