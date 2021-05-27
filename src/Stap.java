@@ -1,10 +1,24 @@
-public class Stap {
+import java.util.Comparator;
+
+public class Stap implements Comparable<Stap>, Comparator<Stap> {
     int naar;
     double afstand;
 
+    public Stap() {
+
+    }
     public Stap(int naar, double afstand) {
         this.naar = naar;
         this.afstand = afstand;
+    }
+
+    @Override
+    public int compare(Stap o1, Stap o2) {
+        if (o1.afstand < o2.afstand)
+            return -1;
+        if (o1.afstand > o2.afstand)
+            return 1;
+        return 0;
     }
 }
 
