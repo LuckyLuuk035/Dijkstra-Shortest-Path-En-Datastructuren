@@ -22,54 +22,22 @@ public class Stap implements Comparator<Stap> {
     }
 }
 
+class Rit extends Stap {
+    public Rit(int stap, int km) {
+        this.stap = stap;
+        this.waarde = km + 10;
+    }
+}
 class TreinRit extends Stap {
     public TreinRit(int stap, int tijd) {
         this.stap = stap;
-        this.waarde = tijd;
+        this.waarde = tijd * 3;
     }
 }
 
 class Vlucht extends Stap {
     public Vlucht(int stap, int afstand){
         this.stap = stap;
-        this.waarde = afstand;
+        this.waarde = (int) (afstand * 1.15) + 8;
     }
 }
-
-//     class Vlucht {
-//        private double prijs;
-//        private double kans = 1.00;
-//        private double kosten;
-//
-//        public double getPrijs() {
-//            return prijs;
-//        }
-//
-//        public void setPrijs() {
-//            this.prijs = afstand * 15;
-//        }
-//
-//        public double getKans() {
-//            return kans;
-//        }
-//
-//        public void setKans() {
-//            this.kans = kans * 1.03;
-//        }
-//
-//        public void setKosten() {
-//            this.kosten = this.prijs * this.kans;
-//        }
-//    }
-//
-//    class rit {
-//        private double km;
-//
-//        public void setKm() {
-//            this.km = afstand * 10;
-//        }
-//    }
-//
-//    class treinrit {
-//        private double tijd;
-//    }

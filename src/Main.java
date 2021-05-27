@@ -4,7 +4,6 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         int s = 7; // Aantal stappen.
-        int begin = 0; // Begin punt.
 
         // Maak een lijst aan met elke node
         List<List<Stap>> stappenLst = new ArrayList<List<Stap>>();
@@ -51,6 +50,58 @@ public class Main {
             for (int b = 0; b < spg.afstanden.length; b++) {
                 System.out.println(a + " naar " + b + " is " + spg.afstanden[b]);
             }
+        }
+
+        //-----------------------------------------------------------------------------------------------------
+        // Dan nog een graph waar gebruikgemaakt word van de verschillende opties van vervoer.
+
+        int x = 4; // Aantal stappen.
+        int begin = 0; // Begin punt.
+
+        // Maak een lijst aan met elke node
+        List<List<Stap>> stappen = new ArrayList<List<Stap>>();
+        for (int i = 0; i < x; i++) {
+            List<Stap> tempLst = new ArrayList<Stap>();
+            stappen.add(tempLst);
+        }
+
+
+        stappen.get(0).add(new Rit(1,3));
+        stappen.get(0).add(new TreinRit(1,3));
+        stappen.get(0).add(new Vlucht(1,3));
+
+        stappen.get(0).add(new Rit(2,2));
+        stappen.get(0).add(new TreinRit(2,2));
+        stappen.get(0).add(new Vlucht(2,2));
+
+        stappen.get(0).add(new Rit(3,5));
+        stappen.get(0).add(new TreinRit(3,5));
+        stappen.get(0).add(new Vlucht(3,5));
+
+        stappen.get(1).add(new Rit(2,7));
+        stappen.get(1).add(new TreinRit(2,7));
+        stappen.get(1).add(new Vlucht(2,7));
+
+        stappen.get(1).add(new Rit(3,3));
+        stappen.get(1).add(new TreinRit(3,3));
+        stappen.get(1).add(new Vlucht(3,3));
+
+        stappen.get(2).add(new Rit(3,1));
+        stappen.get(2).add(new TreinRit(3,1));
+        stappen.get(2).add(new Vlucht(3,1));
+
+        stappen.get(3).add(new Rit(2,4));
+        stappen.get(3).add(new TreinRit(2,4));
+        stappen.get(3).add(new Vlucht(2,4));
+
+
+        System.out.println("\nDan nog een korte demo dat de verschillende vervoersmogelijkheden ook werken.");
+        // Bereken voor alle punten de kortste route naar alle punten.
+        Reis graph = new Reis(x); //
+        graph.algoritme(stappen, begin);
+        System.out.println("Alle kortste paden voor het begin punt " + begin);
+        for (int b = 0; b < graph.afstanden.length; b++) {
+            System.out.println(begin + " naar " + b + " is " + graph.afstanden[b]);
         }
     }
 }

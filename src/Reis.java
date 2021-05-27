@@ -35,9 +35,6 @@ public class Reis implements Comparable<Stap>{
 
             // En voeg deze weer toe aan de bepaalde.
             bepaalde.add(h);
-
-
-
         }
     }
 
@@ -68,3 +65,8 @@ public class Reis implements Comparable<Stap>{
     }
 }
 
+// public class SnelsteRoute implements Comparable<Stap> {
+//    public int compareTo(Stap o1, Stap o2) {
+//        return 0;
+//    }
+//}
