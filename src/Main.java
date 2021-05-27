@@ -40,16 +40,17 @@ public class Main {
         stappenLst.get(5).add(new Stap(4,3)); // F -> E
         stappenLst.get(5).add(new Stap(6,5)); // F -> G
 
-        stappenLst.get(6).add(new Stap(1,1)); // G -> B
-        stappenLst.get(6).add(new Stap(5,1)); // G -> F
+        stappenLst.get(6).add(new Stap(1,2)); // G -> B
+        stappenLst.get(6).add(new Stap(5,5)); // G -> F
 
-        // Bereken de korste paden (dit hoeft maar 1x te gebeuren)
-        Reis spg = new Reis(s); // Spanning Tree Graph - hernoemd naar het YouTube account.
-        spg.algoritme(stappenLst, begin);
-
-        // Print de kortste paden naar alle nodes vanaf 0.
-        for (int i = 0; i < spg.afstanden.length; i++) {
-            System.out.println(begin + " to " + i + " is " + spg.afstanden[i]);
+        // Bereken voor alle punten de kortste route naar alle punten.
+        for (int a = 0; a < s; a++){
+            Reis spg = new Reis(s); // Spanning Tree Graph - hernoemd naar het YouTube account.
+            spg.algoritme(stappenLst, a);
+            System.out.println("Alle kortste paden voor het begin punt " + a);
+            for (int b = 0; b < spg.afstanden.length; b++) {
+                System.out.println(a + " naar " + b + " is " + spg.afstanden[b]);
+            }
         }
     }
 }
