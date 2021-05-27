@@ -54,7 +54,7 @@ public class Reis implements Comparable<Stap>{
                 continue;
             }
             
-            afstand = huidige.afstand;
+            afstand = huidige.waarde;
             nieuweAfstand = afstanden[h] + afstand;
 
             // Als de nieuwe afstand minder is dan de vorige afstand.
