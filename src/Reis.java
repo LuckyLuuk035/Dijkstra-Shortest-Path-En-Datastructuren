@@ -5,7 +5,7 @@ public class Reis implements Comparable<Stap>{
     private int s; // Aantal Stappen.
     private Set<Integer> bepaalde; // Vast gezette Stappen.
     private PriorityQueue<Stap> pq; // De priority queue van de Stappen.
-    List<List<Stap>> naasten; // Lijst van aanliggende.
+    List<List<Stap>> stappenLst; // Lijst van aanliggende.
 
     public Reis(int s) {
         this.s = s;
@@ -14,8 +14,8 @@ public class Reis implements Comparable<Stap>{
         pq = new PriorityQueue<Stap>(s, new Stap());
     }
 
-    public void algoritme(List<List<Stap>> naasten, int begin) {
-        this.naasten = naasten;
+    public void algoritme(List<List<Stap>> stappenLst, int begin) {
+        this.stappenLst = stappenLst;
 
         // Voor het algoritme van dijkstra moet je eerst alle afstanden naar oneindig zetten.
         for (int i = 0; i < s; i++)
@@ -40,9 +40,9 @@ public class Reis implements Comparable<Stap>{
         int afstand = 0;
         int nieuweAfstand = 0;
 
-        // Voor alle naasten.
-        for (int i = 0; i < naasten.get(h).size(); i++) {
-            Stap huidige = naasten.get(h).get(i);
+        // Voor alle aanliggende.
+        for (int i = 0; i < stappenLst.get(h).size(); i++) {
+            Stap huidige = stappenLst.get(h).get(i);
 
             // Als de huidige al is geweest ga door naar volgende.
             if (bepaalde.contains(huidige.stap)) {
