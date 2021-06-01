@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Reis implements Comparable<Stap>{
+public class Reis implements Comparable<Reis>{
     public int afstanden[]; // Afstanden.
     private int s; // Aantal Stappen.
     private Set<Integer> bepaalde; // Vast gezette Stappen.
@@ -62,6 +62,20 @@ public class Reis implements Comparable<Stap>{
             // En voeg tot slot de stap met nieuwe waarde toe aan de queue.
             pq.add(new Stap(huidige.stap, afstanden[huidige.stap]));
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int compareTo(Reis o) {
+        if (o1.waarde < o2.waarde)
+            return -1;
+        if (o1.waarde > o2.waarde)
+            return 1;
+        return 0;
     }
 }
 
