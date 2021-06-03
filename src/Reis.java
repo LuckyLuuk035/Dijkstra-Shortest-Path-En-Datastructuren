@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Reis{
+public class Reis {
     private List<Integer> afstanden;
     private Locatie start; // Het begin punt van de reis.
     private Locatie eind; // Het eind punt van de reis.
@@ -25,43 +25,28 @@ public class Reis{
     }
 
 
-    public void algoritme() {
+    public void run() {
         start.setWaarde(0);
 
-        // Voeg alle locaties toe aan de PriorityQueue.
-//        for(Locatie locatie: locaties){
-        pq.addAll(locaties);
+        pq.addAll(locaties); // Voeg alle locaties toe aan de PriorityQueue.
+        System.out.println(pq);
 
-
-        System.out.println(afstanden);
         while (bepaalde.size() != locaties.size()) { // Zolang niet alle locaties vast staan.
 
             // Haal de minimale afstand van de queue weg.
-            List<Stap> h = pq.remove().getTransities();
-            System.out.println(h);
+            Locatie front = pq.remove();
+
+            for (Stap stap : front.getTransities()) {
+                System.out.println(stap.getAfstand());
+            }
+
             break;
-            // Verwerk de naasten om de priority queue uit te breiden.
-//            naastenVerwerken(h);
 
             // En voeg deze weer toe aan de bepaalde.
             //bepaalde.add(h);
         }
     }
-
-    // Compare two employee objects by their salary
-
-//        for (Locatie o2 : this.pq) {
-//            if (o1.waarde < o2.waarde) {
-//                return -1;
-//            }
-//            if (o1.waarde > o2.waarde) {
-//                return 1;
-//            }
-//            return 0;
-//        }
-//        return 0;
-    }
-
+}
 //
 //    private void naastenVerwerken(int h) {
 //        int afstand = 0;
