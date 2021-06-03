@@ -1,38 +1,32 @@
-import java.lang.reflect.Array;
-import java.util.*;
-
-public class Reis {//implements Comparable<Reis>{
-    private int[] afstanden;
-    private Locatie start; // Het begin punt van de reis.
-    private Locatie eind; // Het eind punt van de reis.
-    private static List<Locatie> locaties;
-
-    private Set<Integer> bepaalde; // Vast gezette Stappen.
-    private PriorityQueue<Locatie> pq; // De priority queue van de locaties.
-
-    public Reis(Locatie start, Locatie eind) {
-        this.start = start;
-        this.eind = eind;
-        //afstanden = new int[locaties.];
-        bepaalde = new HashSet<Integer>();
-        pq = new PriorityQueue<Locatie>();
-    }
-
-    public void setLocatie(List<Locatie> locaties) {
-        Reis.locaties = locaties;
-    }
-
-    public List<Locatie> getLocaties() {
-        return locaties;
-    }
-
-
-
-//    public void algoritme() {
+//import java.util.HashSet;
+//import java.util.List;
+//import java.util.PriorityQueue;
+//import java.util.Set;
 //
-//        // Voeg alle locaties toe aan de PriorityQueue.
-//        pq.add(start);
-//        afstanden[start] = 0; // De afstand tot het begin is altijd 0.
+//public class ReisCopy implements Comparable<ReisCopy>{
+//    public int afstanden[]; // Afstanden.
+//    private int s; // Aantal Stappen.
+//    private Set<Integer> bepaalde; // Vast gezette Stappen.
+//    private PriorityQueue<Stap> pq; // De priority queue van de Stappen.
+//    List<List<Stap>> stappenLst; // Lijst van aanliggende.
+//
+//    public ReisCopy(int s) {
+//        this.s = s;
+//        afstanden = new int[s];
+//        bepaalde = new HashSet<Integer>();
+//        pq = new PriorityQueue<Stap>(s, new Stap());
+//    }
+//
+//    public void algoritme(List<List<Stap>> stappenLst, int begin) {
+//        this.stappenLst = stappenLst;
+//
+//        // Voor het algoritme van dijkstra moet je eerst alle afstanden naar oneindig zetten.
+//        for (int i = 0; i < s; i++)
+//            afstanden[i] = Integer.MAX_VALUE; // Daardoor zetten we ze hier eerst als de hoogst mogelijk hoeveelheid.
+//
+//        // Maak het begin punt aan.
+//        pq.add(new Stap(begin, 0));
+//        afstanden[begin] = 0; // De afstand tot het begin is altijd 0.
 //
 //        while (bepaalde.size() != s) { // Zolang niet alle Stappen zijn geweest
 //
@@ -79,11 +73,17 @@ public class Reis {//implements Comparable<Reis>{
 //    }
 //
 //    @Override
-//    public int compareTo(Reis o) {
+//    public int compareTo(ReisCopy o) {
 //        if (o1.waarde < o2.waarde)
 //            return -1;
 //        if (o1.waarde > o2.waarde)
 //            return 1;
 //        return 0;
 //    }
-}
+//}
+//
+//// public class SnelsteRoute implements Comparable<Stap> {
+////    public int compareTo(Stap o1, Stap o2) {
+////        return 0;
+////    }
+////}
