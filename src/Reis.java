@@ -1,8 +1,6 @@
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.stream.IntStream;
 
-public class Reis {//implements Comparable<Reis>{
+public class Reis{
     private List<Integer> afstanden;
     private Locatie start; // Het begin punt van de reis.
     private Locatie eind; // Het eind punt van de reis.
@@ -27,18 +25,16 @@ public class Reis {//implements Comparable<Reis>{
     }
 
 
-
     public void algoritme() {
-        // Verandere de waardes naar het maximale.
-        for(Locatie locatie :locaties){
-            locatie.setWaarde(Integer.MAX_VALUE);
-        }
         start.setWaarde(0);
 
         // Voeg alle locaties toe aan de PriorityQueue.
+//        for(Locatie locatie: locaties){
         pq.addAll(locaties);
+
+
         System.out.println(afstanden);
-        while (bepaalde.size() != locaties.size()) { // Zolang niet alle Stappen zijn geweest
+        while (bepaalde.size() != locaties.size()) { // Zolang niet alle locaties vast staan.
 
             // Haal de minimale afstand van de queue weg.
             List<Stap> h = pq.remove().getTransities();
@@ -51,6 +47,21 @@ public class Reis {//implements Comparable<Reis>{
             //bepaalde.add(h);
         }
     }
+
+    // Compare two employee objects by their salary
+
+//        for (Locatie o2 : this.pq) {
+//            if (o1.waarde < o2.waarde) {
+//                return -1;
+//            }
+//            if (o1.waarde > o2.waarde) {
+//                return 1;
+//            }
+//            return 0;
+//        }
+//        return 0;
+    }
+
 //
 //    private void naastenVerwerken(int h) {
 //        int afstand = 0;
@@ -83,12 +94,4 @@ public class Reis {//implements Comparable<Reis>{
 //        return super.equals(obj);
 //    }
 //
-//    @Override
-//    public int compareTo(Reis o) {
-//        if (o1.waarde < o2.waarde)
-//            return -1;
-//        if (o1.waarde > o2.waarde)
-//            return 1;
-//        return 0;
-//    }
-}
+

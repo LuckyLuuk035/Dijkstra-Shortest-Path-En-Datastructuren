@@ -15,25 +15,25 @@ public class Main {
         Locatie l7 = new Locatie("7");
         Locatie l8 = new Locatie("8");
 
-        l0.addTransitie(new Stap(l1,4));
-        l0.addTransitie(new Stap(l7,8));
-        l1.addTransitie(new Stap(l2,8));
-        l1.addTransitie(new Stap(l7,11));
-        l2.addTransitie(new Stap(l3,7));
-        l2.addTransitie(new Stap(l5,4));
-        l2.addTransitie(new Stap(l8,2));
-        l3.addTransitie(new Stap(l4,9));
-        l3.addTransitie(new Stap(l5,14));
-        l4.addTransitie(new Stap(l5,10));
-        l5.addTransitie(new Stap(l6,2));
-        l6.addTransitie(new Stap(l7,1));
-        l6.addTransitie(new Stap(l8,6));
-        l7.addTransitie(new Stap(l8,7));
+        l0.addTransitie(new Stap(l1, 4));
+        l0.addTransitie(new Stap(l7, 8));
+        l1.addTransitie(new Stap(l2, 8));
+        l1.addTransitie(new Stap(l7, 11));
+        l2.addTransitie(new Stap(l3, 7));
+        l2.addTransitie(new Stap(l5, 4));
+        l2.addTransitie(new Stap(l8, 2));
+        l3.addTransitie(new Stap(l4, 9));
+        l3.addTransitie(new Stap(l5, 14));
+        l4.addTransitie(new Stap(l5, 10));
+        l5.addTransitie(new Stap(l6, 2));
+        l6.addTransitie(new Stap(l7, 1));
+        l6.addTransitie(new Stap(l8, 6));
+        l7.addTransitie(new Stap(l8, 7));
 
         Reis voorbeeld = new Reis(l0, l8);
         List<Locatie> loc = new ArrayList<Locatie>();
-        Collections.addAll(loc, l0,l1,l2,l3,l4,l5,l6,l7);
+        Collections.addAll(loc, l0, l1, l2, l3, l4, l5, l6, l7);
         voorbeeld.setLocatie(loc);
-        System.out.println(voorbeeld.getLocaties());
-        }
+        voorbeeld.algoritme();
+    }
 }

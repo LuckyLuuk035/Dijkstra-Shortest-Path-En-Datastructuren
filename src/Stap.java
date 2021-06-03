@@ -1,6 +1,4 @@
-import java.util.Comparator;
-
-public class Stap implements Comparable<Stap> {
+public class Stap { // implements Comparable<Stap> {
     private Locatie bestemming;
     private int afstand;
 
@@ -23,11 +21,6 @@ public class Stap implements Comparable<Stap> {
 
     public void setAfstand(int afstand) {
         this.afstand = afstand;
-    }
-
-    @Override
-    public int compareTo(Stap o) {
-        return 0;
     }
 }
 

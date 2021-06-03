@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Locatie {
+public class Locatie  implements Comparable<Locatie> {
     private String naam;
     private List<Stap> transities;
     private int waarde;
@@ -9,9 +9,6 @@ public class Locatie {
     public Locatie(String naam) {
         this.naam = naam;
         this.transities = new ArrayList<Stap>();
-    }
-
-    public Locatie() {
         this.waarde = Integer.MAX_VALUE;
     }
 
@@ -41,5 +38,16 @@ public class Locatie {
 
     public void setWaarde(int waarde) {
         this.waarde = waarde;
+    }
+
+    @Override
+    public int compareTo(Locatie o1) {
+        if(this.getWaarde() > o1.getWaarde()) {
+            return 1;
+        } else if (this.getWaarde() < o1.getWaarde()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }
