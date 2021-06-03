@@ -6,6 +6,7 @@ public class Reis {
     private Locatie eind; // Het eind punt van de reis.
     private static List<Locatie> locaties;
 
+    // Bepaalde kan ook vervangen worden door een counter.
     private Set<Integer> bepaalde; // Vast gezette Stappen.
     private PriorityQueue<Locatie> pq; // De priority queue van de locaties.
 
@@ -24,7 +25,7 @@ public class Reis {
         return locaties;
     }
 
-
+// Het probleem zit als het goed is in het kiezen van de volgende vector!!!
     public void run() {
         start.setWaarde(0);
 
@@ -36,15 +37,22 @@ public class Reis {
             // Haal de minimale afstand van de queue weg.
             Locatie front = pq.remove();
 
-            for (Stap stap : front.getTransities()) {
-                System.out.println(stap.getAfstand());
-            }
-
-            break;
+            updateWaardes(front);
 
             // En voeg deze weer toe aan de bepaalde.
             //bepaalde.add(h);
         }
+    }
+
+    public void updateWaardes(Locatie locatie) {
+        for (Stap stap : locatie.getTransities()) {
+            // Als de waarde van de bestemming groter is dan die van de huidige locatie en stap bij elkaar.
+            int nOptie = locatie.getWaarde() + stap.getAfstand();
+            if (stap.getBestemming().getWaarde() > nOptie) {
+                stap.getBestemming().setWaarde(nOptie);
+            }
+        }
+        bepaalde.add(locatie.getWaarde());
     }
 }
 //
