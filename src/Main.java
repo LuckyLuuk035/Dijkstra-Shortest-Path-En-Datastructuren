@@ -31,9 +31,9 @@ public class Main {
         l7.addTransitie(new Stap(l8,7));
 
         Reis voorbeeld = new Reis(l0, l8);
-        List<Locatie> locaties = new ArrayList<Locatie>();
-        Collections.addAll(locaties, l0,l1,l2,l3,l4,l5,l6,l7);
-        voorbeeld.setLocatie(locaties);
+        List<Locatie> loc = new ArrayList<Locatie>();
+        Collections.addAll(loc, l0,l1,l2,l3,l4,l5,l6,l7);
+        voorbeeld.setLocatie(loc);
         System.out.println(voorbeeld.getLocaties());
         }
 }

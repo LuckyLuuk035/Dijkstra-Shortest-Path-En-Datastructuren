@@ -1,8 +1,9 @@
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Reis {//implements Comparable<Reis>{
-    private int[] afstanden;
+    private List<Integer> afstanden;
     private Locatie start; // Het begin punt van de reis.
     private Locatie eind; // Het eind punt van de reis.
     private static List<Locatie> locaties;
@@ -13,7 +14,6 @@ public class Reis {//implements Comparable<Reis>{
     public Reis(Locatie start, Locatie eind) {
         this.start = start;
         this.eind = eind;
-        //afstanden = new int[locaties.];
         bepaalde = new HashSet<Integer>();
         pq = new PriorityQueue<Locatie>();
     }
@@ -28,24 +28,27 @@ public class Reis {//implements Comparable<Reis>{
 
 
 
-//    public void algoritme() {
-//
-//        // Voeg alle locaties toe aan de PriorityQueue.
-//        pq.add(start);
-//        afstanden[start] = 0; // De afstand tot het begin is altijd 0.
-//
-//        while (bepaalde.size() != s) { // Zolang niet alle Stappen zijn geweest
-//
-//            // Haal de minimale afstand van de queue weg.
-//            int h = pq.remove().stap;
-//
-//            // Verwerk de naasten om de priority queue uit te breiden.
+    public void algoritme() {
+        // Voeg alle locaties toe aan de PriorityQueue.
+        IntStream.range(0, locaties.size()).forEach(n -> {
+            locaties.get(n).setWaarde(Integer.MAX_VALUE);
+            start.setWaarde(0);
+        });
+        pq.addAll(locaties);
+        System.out.println(afstanden);
+        while (bepaalde.size() != locaties.size()) { // Zolang niet alle Stappen zijn geweest
+
+            // Haal de minimale afstand van de queue weg.
+            List<Stap> h = pq.remove().getTransities();
+            System.out.println(h);
+            break;
+            // Verwerk de naasten om de priority queue uit te breiden.
 //            naastenVerwerken(h);
-//
-//            // En voeg deze weer toe aan de bepaalde.
-//            bepaalde.add(h);
-//        }
-//    }
+
+            // En voeg deze weer toe aan de bepaalde.
+            //bepaalde.add(h);
+        }
+    }
 //
 //    private void naastenVerwerken(int h) {
 //        int afstand = 0;
