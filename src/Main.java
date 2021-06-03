@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -27,5 +29,11 @@ public class Main {
         l6.addTransitie(new Stap(l7,1));
         l6.addTransitie(new Stap(l8,6));
         l7.addTransitie(new Stap(l8,7));
+
+        Reis voorbeeld = new Reis(l0, l8);
+        List<Locatie> locaties = new ArrayList<Locatie>();
+        Collections.addAll(locaties, l0,l1,l2,l3,l4,l5,l6,l7);
+        voorbeeld.setLocatie(locaties);
+        System.out.println(voorbeeld.getLocaties());
         }
 }
