@@ -29,11 +29,13 @@ public class Reis {//implements Comparable<Reis>{
 
 
     public void algoritme() {
+        // Verandere de waardes naar het maximale.
+        for(Locatie locatie :locaties){
+            locatie.setWaarde(Integer.MAX_VALUE);
+        }
+        start.setWaarde(0);
+
         // Voeg alle locaties toe aan de PriorityQueue.
-        IntStream.range(0, locaties.size()).forEach(n -> {
-            locaties.get(n).setWaarde(Integer.MAX_VALUE);
-            start.setWaarde(0);
-        });
         pq.addAll(locaties);
         System.out.println(afstanden);
         while (bepaalde.size() != locaties.size()) { // Zolang niet alle Stappen zijn geweest
