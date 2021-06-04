@@ -34,9 +34,6 @@ public class Main {
         List<Locatie> loc = new ArrayList<Locatie>();
         Collections.addAll(loc, l0, l1, l2, l3, l4, l5, l6, l7);
         voorbeeld.setLocatie(loc);
-        voorbeeld.run();
-        for (Locatie i : voorbeeld.getLocaties()) {
-            System.out.println(i.getWaarde());
-        }
+        System.out.println(voorbeeld.run());
     }
 }

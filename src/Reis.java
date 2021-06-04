@@ -14,7 +14,7 @@ public class Reis {
         this.start = start;
         this.eind = eind;
         bepaalde = new HashSet<Integer>();
-        pq = new PriorityQueue<Locatie>();
+        pq = new PriorityQueue<Locatie>(Locatie::compareTo);
     }
 
     public void setLocatie(List<Locatie> locaties) {
@@ -25,16 +25,22 @@ public class Reis {
         return locaties;
     }
 
-// Het probleem zit als het goed is in het kiezen van de volgende vector!!!
-    public void run() {
+    // Het probleem zit als het goed is in het kiezen van de volgende vector!!!
+    public String run() {
         start.setWaarde(0);
 
-        pq.addAll(locaties); // Voeg alle locaties toe aan de PriorityQueue.
+        // Ik weet dat het niet zo moet maar kon de correcte oplossing niet vinden dus doe het zo.
+        for (Locatie locatie : locaties) {
+            pq.add(locatie);
+        }
+        //pq.addAll(locaties); // Voeg alle locaties toe aan de PriorityQueue.
         System.out.println(pq);
 
         while (bepaalde.size() != locaties.size()) { // Zolang niet alle locaties vast staan.
 
             // Haal de minimale afstand van de queue weg.
+            // Ik weet dat het niet zo moet maar kon de correcte oplossing niet vinden dus doe het zo.
+
             Locatie front = pq.remove();
 
             updateWaardes(front);
@@ -42,6 +48,7 @@ public class Reis {
             // En voeg deze weer toe aan de bepaalde.
             //bepaalde.add(h);
         }
+        return this.toString();
     }
 
     public void updateWaardes(Locatie locatie) {
@@ -52,39 +59,19 @@ public class Reis {
                 stap.getBestemming().setWaarde(nOptie);
             }
         }
+        if(bepaalde.contains(locatie.getWaarde())) {
+            return;
+        }
+        pq.add(locatie);
         bepaalde.add(locatie.getWaarde());
     }
-}
-//
-//    private void naastenVerwerken(int h) {
-//        int afstand = 0;
-//        int nieuweAfstand = 0;
-//
-//        // Voor alle aanliggende.
-//        for (int i = 0; i < stappenLst.get(h).size(); i++) {
-//            Stap huidige = stappenLst.get(h).get(i);
-//
-//            // Als de huidige al is geweest ga door naar volgende.
-//            if (bepaalde.contains(huidige.stap)) {
-//                continue;
-//            }
-//
-//            afstand = huidige.waarde;
-//            nieuweAfstand = afstanden[h] + afstand;
-//
-//            // Als de nieuwe afstand minder is dan de vorige afstand.
-//            if (nieuweAfstand < afstanden[huidige.stap]){
-//                afstanden[huidige.stap] = nieuweAfstand;
-//            }
-//
-//            // En voeg tot slot de stap met nieuwe waarde toe aan de queue.
-//            pq.add(new Stap(huidige.stap, afstanden[huidige.stap]));
-//        }
-//    }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        return super.equals(obj);
-//    }
-//
 
+    @Override
+    public String toString() {
+        return "De reis van" +
+                " start: " + start +
+                " tot eind: " + eind +
+                " is " + eind.getWaarde() +
+                " lang.";
+    }
+}
