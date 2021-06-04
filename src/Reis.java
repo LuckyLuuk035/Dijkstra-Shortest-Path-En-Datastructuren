@@ -28,12 +28,8 @@ public class Reis {
     // Het probleem zit als het goed is in het kiezen van de volgende vector!!!
     public String run() {
         start.setWaarde(0);
-
-        // Ik weet dat het niet zo moet maar kon de correcte oplossing niet vinden dus doe het zo.
-        for (Locatie locatie : locaties) {
-            pq.add(locatie);
-        }
-        //pq.addAll(locaties); // Voeg alle locaties toe aan de PriorityQueue.
+        
+        pq.addAll(locaties); // Voeg alle locaties toe aan de PriorityQueue.
         System.out.println(pq);
 
         while (bepaalde.size() != locaties.size()) { // Zolang niet alle locaties vast staan.
